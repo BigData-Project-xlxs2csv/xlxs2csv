@@ -20,10 +20,10 @@
 
 ```bash
 # 자동 최적화 (권장)
-python xlsx2csv_hybrid.py input.xlsx --output-dir output/
+python src/xlsx2csv_hybrid.py input.xlsx --output-dir output/
 ```
 
-더 자세한 내용은 [QUICKSTART.md](QUICKSTART.md) 참조
+더 자세한 내용은 [QUICKSTART.md](docs/QUICKSTART.md) 참조
 
 ## 📊 성능 비교
 
@@ -61,9 +61,9 @@ python xlsx2csv_hybrid.py input.xlsx --output-dir output/
 
 ## 📖 문서
 
-- **[QUICKSTART.md](QUICKSTART.md)** - 1분 빠른 시작
-- **[PROJECT_README.md](PROJECT_README.md)** - 프로젝트 상세 소개
-- **[FINAL_REPORT.md](FINAL_REPORT.md)** - 완전한 실험 보고서 (2,124줄)
+- **[QUICKSTART.md](docs/QUICKSTART.md)** - 1분 빠른 시작
+- **[PROJECT_README.md](docs/PROJECT_README.md)** - 프로젝트 상세 소개
+- **[FINAL_REPORT.md](docs/FINAL_REPORT.md)** - 완전한 실험 보고서 (2,124줄)
 
 ## 🛠️ 설치 및 실행
 
@@ -79,23 +79,23 @@ psutil    # 벤치마크용 (선택)
 
 ```bash
 # 다중 시트 파일
-python xlsx2csv_parallel.py input.xlsx output/
+python src/xlsx2csv_parallel.py input.xlsx output/
 
 # 대용량 단일 시트
-python xlsx2csv_chunked.py input.xlsx output.csv --chunk-size 50000
+python src/xlsx2csv_chunked.py input.xlsx output.csv --chunk-size 50000
 
 # 자동 최적화
-python xlsx2csv_hybrid.py input.xlsx
+python src/xlsx2csv_hybrid.py input.xlsx
 ```
 
 ### 성능 측정
 
 ```bash
 # 테스트 데이터 생성
-python generate_test_data.py
+python src/generate_test_data.py
 
 # 벤치마크 실행
-python compare_performance.py test_data/medium_test.xlsx --runs 3
+python src/compare_performance.py test_data/medium_test.xlsx --runs 3
 ```
 
 ## 📁 프로젝트 구조
@@ -169,28 +169,28 @@ cd xlsx2csv
 ### 2. 테스트 데이터 생성 (선택)
 
 ```bash
-python generate_test_data.py
-python generate_large_sheet.py
+python tools/generate_test_data.py
+python tools/generate_large_sheet.py
 ```
 
 ### 3. 성능 측정
 
 ```bash
 # 기본 벤치마크
-python compare_performance.py test_data/medium_test.xlsx --runs 3
+python benchmark/compare_performance.py test_data/medium_test.xlsx --runs 3
 
 # 청크 병렬 벤치마크
-python benchmark_chunked.py
+python benchmark/benchmark_chunked.py
 ```
 
 ### 4. 실제 사용
 
 ```bash
 # 자동 최적화
-python xlsx2csv_hybrid.py your_file.xlsx
+python src/xlsx2csv_hybrid.py your_file.xlsx
 
 # 또는 개별 전략
-python xlsx2csv_parallel.py your_file.xlsx output/
+python src/xlsx2csv_parallel.py your_file.xlsx output/
 ```
 
 ## 📞 문의
@@ -208,7 +208,7 @@ python xlsx2csv_parallel.py your_file.xlsx output/
 
 ## 📊 상세 결과
 
-전체 실험 과정과 분석은 **[FINAL_REPORT.md](FINAL_REPORT.md)** (2,176줄) 참조
+전체 실험 과정과 분석은 **[FINAL_REPORT.md](docs/FINAL_REPORT.md)** (2,176줄) 참조
 
 ---
 
